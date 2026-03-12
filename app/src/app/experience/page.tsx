@@ -10,7 +10,7 @@ const experiences = [
         role: "Software Developer Apprentice",
         company: "SIX Group AG",
         employment: "Apprenticeship",
-        text: "During my apprenticeship, I built and maintained various internal web applications and automations, taking ownership of both development and ongoing improvements. I also gained experience in agile teamwork, cloud technologies, DevOps practices, and AI integrations while contributing to different teams and internal initiatives.",
+        text: "During my apprenticeship, I built and maintained various internal web applications and automations, taking ownership of both development and ongoing improvements. I also gained experience in agile teamwork, cloud technologies, DevOps practices, and AI integrations while contributing to different teams.",
         isCurrent: true,
     },
     {
