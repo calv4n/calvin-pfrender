@@ -1,13 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { useLayoutEffect, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 
 import { Highlighter } from "@/components/ui/highlighter";
 
 export default function Navbar() {
   const pathname = usePathname();
+  const navRef = useRef<HTMLElement | null>(null);
   const [isOpen, setIsOpen] = useState(false);
   const [navTheme, setNavTheme] = useState<"light" | "dark">(() => {
     if (!pathname) return "light";
@@ -31,42 +32,61 @@ export default function Navbar() {
     );
 
     if (!themedSections.length) {
-      setNavTheme("light");
-      return;
+      const fallbackTheme: "light" | "dark" =
+        pathname?.startsWith("/projects") || pathname?.startsWith("/experience")
+          ? "dark"
+          : "light";
+      const fallbackRaf = window.requestAnimationFrame(() => {
+        setNavTheme(fallbackTheme);
+      });
+      return () => window.cancelAnimationFrame(fallbackRaf);
     }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+    let rafId = 0;
 
-        const topSection = visible[0]?.target as HTMLElement | undefined;
-        const theme = topSection?.dataset.navTheme;
+    const resolveThemeAtHeader = () => {
+      const navRect = navRef.current?.getBoundingClientRect();
+      const markerY = navRect
+        ? Math.max(0, Math.min(window.innerHeight - 1, navRect.top + navRect.height * 0.5))
+        : Math.max(24, window.innerHeight * 0.1);
 
-        if (theme === "dark" || theme === "light") {
-          setNavTheme(theme);
-        }
-      },
-      {
-        threshold: [0.15, 0.35, 0.5, 0.75],
-        rootMargin: "-15% 0px -35% 0px",
+      const currentSection = themedSections.find((section) => {
+        const rect = section.getBoundingClientRect();
+        return rect.top <= markerY && rect.bottom >= markerY;
+      });
+
+      const fallbackSection =
+        currentSection ??
+        [...themedSections]
+          .filter((section) => section.getBoundingClientRect().top <= markerY)
+          .sort((a, b) => b.getBoundingClientRect().top - a.getBoundingClientRect().top)[0] ??
+        themedSections[0];
+
+      const theme = fallbackSection?.dataset.navTheme;
+      if (theme === "dark" || theme === "light") {
+        setNavTheme(theme);
       }
-    );
+    };
 
-    themedSections.forEach((section) => observer.observe(section));
+    const handleScrollOrResize = () => {
+      if (rafId) return;
+      rafId = window.requestAnimationFrame(() => {
+        rafId = 0;
+        resolveThemeAtHeader();
+      });
+    };
 
-    const markerY = window.innerHeight * 0.2;
-    const initial = themedSections.find((section) => {
-      const rect = section.getBoundingClientRect();
-      return rect.top <= markerY && rect.bottom >= markerY;
-    });
-    const initialTheme = initial?.dataset.navTheme;
-    if (initialTheme === "dark" || initialTheme === "light") {
-      setNavTheme(initialTheme);
-    }
+    handleScrollOrResize();
+    window.addEventListener("scroll", handleScrollOrResize, { passive: true });
+    window.addEventListener("resize", handleScrollOrResize);
 
-    return () => observer.disconnect();
+    return () => {
+      window.removeEventListener("scroll", handleScrollOrResize);
+      window.removeEventListener("resize", handleScrollOrResize);
+      if (rafId) {
+        window.cancelAnimationFrame(rafId);
+      }
+    };
   }, [pathname]);
 
   const isDark = navTheme === "dark";
@@ -76,6 +96,7 @@ export default function Navbar() {
 
   return (
     <nav
+      ref={navRef}
       className={`fixed top-0 left-0 w-full p-[24px] sm:p-[32px] z-50 bg-transparent backdrop-blur-md border-b border-transparent transition-colors duration-300 ${textClass}`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
