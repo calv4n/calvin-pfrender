@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import SplitText from "@/components/SplitText";
 import Experience from "./experience/page";
 import Projects from "./projects/page";
@@ -48,7 +49,7 @@ export default function Home() {
               threshold={0.2}
               delay={0}
             >
-              <div className="w-[75%] flex flex-col md:flex-row gap-3 md:gap-14">
+              <div className="w-full md:w-[82%] flex flex-col md:flex-row gap-3 md:gap-14">
                 <div className="text-xl sm:text-2xl md:text-3xl font-medium max-w-xl">
                   <p>{subtitleText}</p>
                 </div>
@@ -63,19 +64,29 @@ export default function Home() {
                     myself, both as a developer and as a person.
                   </p>
                 </div>
-                <div>
-                  <p className="block sm:hidden py-4 text-gray-700 opacity-50">WORKING @ SIX GROUP</p>
-                  <a 
-                    href="#experience"
-                    className="block sm:hidden text-white Bdogrotesk-Title bg-[#1c1c1c] p-4.5 rounded-4xl w-40 text-center font-semibold "
-                    >
-                      About Me 
-                      <p 
-                        className="material-symbols-outlined rotate-180 align-middle ml-2 inline-block">
-                          arrow_insert
-                      </p>
-                  </a>
-                </div>
+                <p className="block sm:hidden py-2 text-gray-700 opacity-60 text-xs tracking-[0.16em]">WORKING @ SIX GROUP</p>
+              </div>
+
+              <div className="flex w-full flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 pt-2">
+                <Link
+                  href="/#experience"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[#1c1c1c] px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-[2px] hover:shadow-[0_10px_25px_rgba(0,0,0,0.2)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1c1c1c]"
+                >
+                  About Me
+                  <span className="material-symbols-outlined text-base" aria-hidden="true">north_east</span>
+                </Link>
+                <Link
+                  href="/askme"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-[#1c1c1c] px-6 py-3 text-sm font-semibold text-[#1c1c1c] transition hover:-translate-y-[2px] hover:shadow-[0_10px_25px_rgba(0,0,0,0.12)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1c1c1c]"
+                >
+                  Ask Me
+                </Link>
+                <Link
+                  href="/#contact"
+                  className="inline-flex items-center justify-center gap-2 rounded-full px-3 py-2 text-sm font-semibold text-[#1c1c1c] transition hover:bg-black/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1c1c1c]"
+                >
+                  Contact
+                </Link>
               </div>
             </AnimatedContent>
           </div>

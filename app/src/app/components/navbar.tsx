@@ -20,7 +20,7 @@ export default function Navbar() {
     // { name: "About", href: "#about" },
     { name: "Projects", href: "/#projects" },
     { name: "Contact", href: "/#contact" },
-    { name: "Ask me", href: "/askme", underline: true },
+    { name: "Ask Me", href: "/askme", underline: true },
   ];
 
   const brandName = "Calvin Pfrender";

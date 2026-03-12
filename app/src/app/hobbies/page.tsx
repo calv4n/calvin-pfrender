@@ -1,4 +1,5 @@
 import AnimatedContent from "@/components/AnimatedContent";
+import Link from "next/link";
 import { Highlighter } from "@/components/ui/highlighter";
 
 const hobbies = [
@@ -24,7 +25,7 @@ const hobbies = [
 
 export default function Hobbies() {
     return (
-        <section id="hobbies" data-nav-theme="dark" className="relative overflow-hidden px-[24px] sm:px-[48px] bg-[#1c1c1c] text-white">
+        <section id="hobbies" data-nav-theme="dark" className="relative overflow-hidden px-[24px] sm:px-[48px] bg-[#1c1c1c] text-white pt-10 sm:mt-0">
             <div className="relative max-w-7xl mx-auto">
                 <AnimatedContent
                     distance={70}
@@ -38,7 +39,7 @@ export default function Hobbies() {
                     threshold={0.2}
                     delay={0}
                 >
-                    <div className="min-h-[calc(100vh-96px)] sm:min-h-[70vh] pt-32 sm:pt-32">
+                    <div className="min-h-[calc(100vh-96px)] sm:min-h-[45vh] ">
                         <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
                             <div className="lg:w-[34%] space-y-6">
                                 <div className="flex items-center gap-3 text-sm uppercase tracking-[0.2em] text-gray-400">
@@ -47,8 +48,8 @@ export default function Hobbies() {
                                 </div>
                                 <h1 className="text-5xl font-[Bdogrotesk-Title] font-bold leading-tight">My Life Beyond Work</h1>
                                 <p className="text-lg text-gray-300 leading-8">
-                                    {/* The same curiosity that drives my code gets channelled into the outdoors, movement, and capturing moments. These are the things that reset my mind and keep my work sharp. */}
-                                    My curiosity extends beyond my work — into the outdoors and physical activity. They balance my mind and{" "}
+                                    My curiosity extends beyond my work, into the outdoors and physical activity.
+                                    They balance my mind and{" "}
                                     <Highlighter
                                         action="underline"
                                         color="#0038ff"
@@ -57,7 +58,6 @@ export default function Hobbies() {
                                     >
                                         sharpen my craft.
                                     </Highlighter>
-                                    
                                 </p>
                             </div>
 
@@ -68,7 +68,7 @@ export default function Hobbies() {
                                         className="group relative h-[320px] sm:h-[360px] overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.03] shadow-[0_20px_60px_rgba(0,0,0,0.45)]"
                                     >
                                         <div
-                                        className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                                            className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
                                             style={{ backgroundImage: `url(${hobby.image})` }}
                                         />
                                         <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/40 to-black/80" />

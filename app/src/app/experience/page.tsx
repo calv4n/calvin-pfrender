@@ -1,6 +1,6 @@
 "use client";
+import Link from "next/link";
 import AnimatedContent from "@/components/AnimatedContent";
-import { Highlighter } from "@/components/ui/highlighter";
 import SpotlightCard from "@/components/SpotlightCard";
 import FloatingToolIcons from "@/components/FloatingToolIcons";
 
@@ -36,7 +36,7 @@ const skillscardData = [
 
 export default function Experience() {
     return (
-        <section id="experience" data-nav-theme="dark" className="p-[24px] sm:p-[48px] bg-[#1c1c1c] text-white pt-24 sm:pt-48 pb-0">
+        <section id="experience" data-nav-theme="dark" className="p-[24px] sm:p-[48px] bg-[#1c1c1c] text-white pt-24 pb-0">
             <div className="max-w-7xl mx-auto">
                 <AnimatedContent
                     distance={70}
@@ -50,7 +50,7 @@ export default function Experience() {
                     threshold={0.2}
                     delay={0}
                 >
-                    <div className="min-h-[calc(100vh-96px)] pt-0 sm:pt-18">
+                    <div className="min-h-[calc(100vh-96px)] pt-0 sm:pt-28">
                         <div className="lg:w-[36%] space-y-6">
                             <div className="flex items-center gap-3 text-sm uppercase tracking-[0.2em] text-gray-400">
                                 <span className="h-px w-10 bg-white/30" />
@@ -111,6 +111,28 @@ export default function Experience() {
                         <div>
                             <FloatingToolIcons />
                         </div>
+
+                        <div className=" rounded-[26px] border border-white/15 bg-white/[0.03] p-6 sm:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-5 mt-[-50px]">
+                            <p className="text-base sm:text-lg text-gray-200 leading-7 max-w-2xl">
+                                Want to know more about me and my work?
+                            </p>
+                            <div className="flex flex-col sm:flex-row gap-3">
+                                <Link
+                                    href="/askme"
+                                    className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-[#1c1c1c] transition hover:-translate-y-[2px] hover:shadow-[0_12px_24px_rgba(255,255,255,0.16)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                                >
+                                    Ask me
+                                    <span className="material-symbols-outlined text-base" aria-hidden="true">chat</span>
+                                </Link>
+                                <Link
+                                    href="/#contact"
+                                    className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                                >
+                                    Contact me
+                                </Link>
+                            </div>
+                        </div>
+
                     </div>
                 </AnimatedContent>
             </div>
