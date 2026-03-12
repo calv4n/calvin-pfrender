@@ -5,6 +5,7 @@ import AnimatedContent from "@/components/AnimatedContent";
 import AnswerPanel from "./components/AnswerPanel";
 import QuestionForm from "./components/QuestionForm";
 import PresetQuestions from "./components/PresetQuestions";
+import SplitText from "@/components/SplitText";
 import { askQuestion } from "./api";
 
 type ChatMessage = { role: "user" | "assistant" | "error"; text: string; pending?: boolean };
@@ -20,6 +21,19 @@ export default function Askme() {
     const [loading, setLoading] = useState(false);
     const bottomRef = useRef<HTMLDivElement | null>(null);
     const hasMessages = messages.length > 0;
+
+    const splitTextProps = {
+        className: "text-7xl sm:text-8xl md:text-9xl text-center font-[Bdogrotesk] font-[1000]",
+        delay: 75,
+        duration: 0.5,
+        ease: "power3.out" as const,
+        splitType: "chars" as const,
+        from: { opacity: 0, y: 40 },
+        to: { opacity: 0.9, y: 0 },
+        threshold: 0.1,
+        rootMargin: "-100px",
+        textAlign: "center" as const,
+    };
 
     const scrollToBottom = useCallback(() => {
         requestAnimationFrame(() => {
@@ -120,6 +134,12 @@ export default function Askme() {
                             hasMessages ? "" : "items-center justify-center"
                         }`}
                     >
+                        {!hasMessages && (
+                            <div className={`flex flex-col items-center`}>
+                                <SplitText text="Ask Me" {...splitTextProps} />
+                            </div>
+                        )}
+
                         <div className="w-full flex justify-center">
                             <AnswerPanel messages={messages} />
                         </div>
