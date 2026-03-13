@@ -42,7 +42,7 @@ export default function Projects() {
                             <div className="text-center md:text-start">
                                 <p className="pt-2 text-base md:text-lg text-gray-700">Interested in my work? Let's connect!</p>
                                 <a
-                                    href="mailto:calvin.pfrender@gmail.com"
+                                    href="mailto:contact@calvinpfrender.dev"
                                     className="inline-flex items-center justify-center gap-3 mt-6 md:mt-8 px-6 py-3 rounded-full bg-[#1c1c1c] text-white text-sm font-semibold shadow-[0_10px_30px_rgba(0,0,0,0.18)] transition hover:translate-y-[-2px] hover:shadow-[0_16px_40px_rgba(0,0,0,0.22)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1c1c1c]"
                                 >
                                     <span className="material-symbols-outlined text-base">mail</span>
