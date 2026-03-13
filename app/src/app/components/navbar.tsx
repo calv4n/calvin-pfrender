@@ -17,9 +17,10 @@ export default function Navbar() {
   });
 
   const navItems = [
-    { name: "Experience", href: "/#experience" },
+    { name: "About Me", href: "/#experience" },
     // { name: "About", href: "#about" },
-    { name: "Projects", href: "/#projects" },
+    // { name: "Projects", href: "/#projects" },
+    { name: "Docs", href: "/docs" },
     { name: "Contact", href: "/#contact" },
     { name: "Ask Me", href: "/askme", underline: true },
   ];
