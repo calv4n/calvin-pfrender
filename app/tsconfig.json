@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "target": "ES2017",
     "lib": [
       "dom",
@@ -24,7 +25,11 @@
     ],
     "paths": {
       "@/*": [
-        "./src/*"
+        "./src/*",
+        "./*"
+      ],
+      "fumadocs-mdx:collections/*": [
+        "./.source/*"
       ]
     }
   },

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { RootProvider } from "fumadocs-ui/provider/next";
 import "./globals.css";
-import Navbar from "./components/navbar";
-import Footer from "./components/footer";
+import SiteChrome from "./components/site-chrome";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,16 +27,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}>
-          <Navbar />
-          <main>
-            {children}
-          </main>
-          <Footer/>
+        <RootProvider>
+          <SiteChrome>{children}</SiteChrome>
+        </RootProvider>
       </body>
     </html>
   );
