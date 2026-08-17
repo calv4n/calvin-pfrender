@@ -23,9 +23,9 @@ export default function Home() {
   };
 
   const subtitleText =
-    "Swiss software developer based near Zurich finishing his apprenticeship.";
+    "Swiss software developer based near Zurich.";
   const textFirst =
-    "Building and maintaining web applications and internal automations at SIX, focused on clarity, reliability, and best practices.";
+    "Building and maintaining web applications and AI integrations at SIX, focused on clarity, reliability, and best practices.";
 
   return (
     <>
