@@ -2,8 +2,8 @@
   "name": "Calvin Pfrender",
   "preferred_name": "Calvin",
   "location": "Near Zurich, Switzerland",
-  "role": "Software Developer Apprentice at SIX Group AG",
-  "bio": "Swiss software developer apprentice focused on clarity, reliability, and best practices while building internal web apps and automations.",
+  "role": "Software Developer at SIX Group AG",
+  "bio": "Swiss software developer focused on clarity, reliability, and best practices while building internal web apps and automations.",
   "values": [
     "Clarity and reliability",
     "Best practices",
@@ -12,8 +12,14 @@
   ],
   "experience": [
     {
+      "timeline": "2026-now",
+      "role": "Software Developer Intern",
+      "company": "SIX Group AG",
+      "focus": "Working on FinTech Applications. Gaining experience in agile teamwork, DevOps practices, and AI integrations while contributing to different teams."
+    },
+    {
       "timeline": "2022-2026",
-      "role": "Software Developer Apprentice",
+      "role": "Software Developer",
       "company": "SIX Group AG",
       "focus": "Building and maintaining various internal web applications and automations, taking ownership of both development and ongoing improvements. Gaining experience in agile teamwork, cloud technologies, DevOps practices, and AI integrations while contributing to different teams and internal initiatives."
     },
@@ -54,6 +60,7 @@
   "hobbies": [
     "Hiking in the Swiss Alps",
     "Practicing martial arts",
+    "Riding my motorcycle",
     "Spending time with my Family"
   ]
 }

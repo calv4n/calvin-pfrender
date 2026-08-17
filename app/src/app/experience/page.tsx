@@ -6,12 +6,20 @@ import FloatingToolIcons from "@/components/FloatingToolIcons";
 
 const experiences = [
     {
+        timeline: "2026 - now",
+        role: "Software Developer",
+        company: "SIX Group AG",
+        employment: "Full Time",
+        text: "Working on FinTech Applications. Gaining experience in agile teamwork, DevOps practices, and AI integrations.",
+        isCurrent: true,
+    },
+    {
         timeline: "2022 - 2026",
         role: "Software Developer Apprentice",
         company: "SIX Group AG",
         employment: "Apprenticeship",
         text: "During my apprenticeship, I built and maintained various internal web applications and automations, taking ownership of both development and ongoing improvements. I also gained experience in agile teamwork, cloud technologies, DevOps practices, and AI integrations while contributing to different teams.",
-        isCurrent: true,
+        isCurrent: false,
     },
     {
         timeline: "2022 - 2026",
@@ -19,7 +27,7 @@ const experiences = [
         company: "TBZ - Zurich",
         employment: "Education",
         text: "Currently completing my vocational education at TBZ, building a strong foundation in computer science and software engineering through coursework, projects, and practical training.",
-        isCurrent: true,
+        isCurrent: false,
     },
 ];
 
